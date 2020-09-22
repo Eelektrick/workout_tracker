@@ -23,16 +23,28 @@ router.put("/api/workouts/:id",({body,params},res)=>{
     });
 });
 
-router.get("",(req,res)=>{
-    
+router.get("/api/workouts",(req,res)=>{
+    Workout.find()
+    .then(workoutDb => {
+      res.json(workoutDb);
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 router.get("",(req,res)=>{
     
 });
 
-router.delete("",(req,res)=>{
-    
+router.delete("/api/workouts",({body},res)=>{
+    Workout.findByIdAndDelete(body.id)
+    .then(()=>{
+        res.json(true);
+    })
+    .catch(err => {
+        res.json(err);
+    });
 });
 
 module.exports = router;
