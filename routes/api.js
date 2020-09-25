@@ -33,8 +33,15 @@ router.get("/api/workouts",(req,res)=>{
     });
 });
 
-router.get("",(req,res)=>{
-    
+router.get("/api/workouts/range",(req,res)=>{
+    Workout.find({}).limit(7)
+    .then(workoutDb =>{
+        console.log(workoutDb)
+        res.json(workoutDb);
+    })
+    .catch(err=>{
+        res.json(err);
+    });
 });
 
 router.delete("/api/workouts",({body},res)=>{

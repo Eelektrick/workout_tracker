@@ -18,7 +18,7 @@
 
 # Link 
 
-[Link to Heroku site](h)
+[Link to Heroku site]()
 
 # Screenshot
 
